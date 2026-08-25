@@ -5,7 +5,6 @@
 
 # Local configuration and notes containing credentials
 config/agents_config.json
-config/config.json
 开发设计思路.txt
 management/interface_mapper/scripts/agent_runner.py
 services/redis_config_bus.py

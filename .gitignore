@@ -5,10 +5,12 @@
 
 # Local configuration and notes containing credentials
 config/agents_config.json
-开发设计思路.txt
 management/interface_mapper/scripts/agent_runner.py
 services/redis_config_bus.py
 docs/postman_es_verify.json
+
+# Local Codex instructions; each workspace may maintain its own version
+AGENTS.md
 
 # Python caches, virtual environments and test artifacts
 __pycache__/

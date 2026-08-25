@@ -1,0 +1,45 @@
+# Secrets and local environment files
+.env
+.env.*
+!.env.example
+
+# Local configuration and notes containing credentials
+config/agents_config.json
+config/config.json
+开发设计思路.txt
+management/interface_mapper/scripts/agent_runner.py
+services/redis_config_bus.py
+docs/postman_es_verify.json
+
+# Python caches, virtual environments and test artifacts
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# Frontend dependencies and build output
+frontend/node_modules/
+node_modules/
+frontend/dist/
+frontend/build/
+frontend/dist-*/
+
+# Runtime output
+logs/
+*.log
+
+# IDE and OS files
+.idea/
+.vscode/
+.DS_Store
+*.swp
+
+# Local tooling state
+.cache/
+.tmp/

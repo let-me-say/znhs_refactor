@@ -1,0 +1,130 @@
+{
+  "strategy": {
+    "default_strategy": "direct",
+    "top_n": 2,
+    "intent_strategies": {},
+    "max_script_length": 100,
+    "max_parallel_scripts": 3
+  },
+  "field_aliases": {
+    "_comment": "套餐字段别名（按优先级从高到低列出），ScriptStep 按此映射取值，无需硬编码字段名",
+    "pkg_name": [
+      "offerName",
+      "package_name",
+      "productName",
+      "name"
+    ],
+    "pkg_fee": [
+      "initFee",
+      "monthly_fee",
+      "price",
+      "fee"
+    ],
+    "pkg_flow": [
+      "offerFlow",
+      "data_quota",
+      "dataGB",
+      "flow"
+    ],
+    "pkg_voice": [
+      "offerVoice",
+      "voice_quota",
+      "voiceMinutes",
+      "voice"
+    ]
+  },
+  "script_templates_v2": [
+    {
+      "template_id": "tpl_beijing_default_001",
+      "template_name": "套餐推荐",
+      "intent": "套餐推荐",
+      "product_id": "",
+      "scene": "套餐推荐",
+      "stage": "套餐推荐",
+      "province": "beijing",
+      "template_content": "您好！您当前套餐为xx，根据您近6个月的通信消费和使用情况xx。我为您推荐xx套餐，{diff_str}，您只需在现有月均消费的基础上少许增加，即可享受更多权益。",
+      "prompt_template": "你是移动套餐营销推荐坐席。\n请基于以下用户信息和话术模板生成个性化套餐营销推荐话术：\n当前套餐信息：{cur_brief}\n推荐产品信息：{pkg_brief}\n套餐差异：{usage_line}\n历史用量{diff_str}\n话术模板：{template_content}\n\n直接输出话术文本，不需要前缀，口语化；营销推荐话术贴合用户痛点，字数{max_length}字以内。",
+      "linked_apis": [],
+      "status": "offline",
+      "created_at": "2026-04-23 09:00:00",
+      "created_by": "admin",
+      "linked_vars": [
+        "cur_brief",
+        "pkg_brief",
+        "diff_str",
+        "usage_line",
+        "table"
+      ],
+      "script_requirement": "直接输出话术文本，不需要前缀，口语化；营销推荐话术贴合用户痛点，字数100字以内。"
+    },
+    {
+      "province": "beijing",
+      "intent": "套餐推荐",
+      "template_name": "套餐推荐",
+      "scene": "",
+      "stage": "",
+      "product_id": "",
+      "template_content": "您好！您当前套餐为xx，根据您近几个月的通信消费和使用情况xx。我为您推荐xx套餐，{diff_str}，您只需在现有月均消费的基础上少许增加，即可享受更多权益。",
+      "prompt_template": "你是移动套餐营销推荐坐席。\n请基于以下用户信息和话术模板生成个性化套餐营销推荐话术：\n\n话术模板：{template_content}\n\n直接输出话术文本，不需要前缀，口语化；营销推荐话术贴合用户痛点，字数{max_length}字以内。",
+      "linked_apis": [],
+      "status": "offline",
+      "created_by": "import",
+      "created_at": "2026-04-23 11:23:17",
+      "template_id": "tpl_beijing_1776914597634_284bc2",
+      "linked_vars": [
+        "cur_brief",
+        "pkg_brief",
+        "diff_str",
+        "usage_line",
+        "table"
+      ],
+      "script_requirement": "直接输出话术文本，不需要前缀，口语化；营销推荐话术贴合用户痛点，字数50字以内。"
+    },
+    {
+      "province": "beijing",
+      "intent": "套餐推荐",
+      "template_name": "流量推荐",
+      "scene": "",
+      "stage": "",
+      "product_id": "",
+      "template_content": "您好！您当前套餐为xx，根据您近几个月的通信消费和使用情况xx。我为您推荐xx套餐，{diff_str}，您只需在现有月均消费的基础上少许增加，即可享受更多权益。",
+      "prompt_template": "你是移动套餐营销推荐坐席。\n请基于以下用户信息和话术模板生成个性化套餐营销推荐话术：\n\n话术模板：{template_content}\n\n直接输出话术文本，不需要前缀，口语化；营销推荐话术贴合用户痛点，字数{max_length}字以内。",
+      "linked_apis": [],
+      "status": "offline",
+      "created_by": "import",
+      "created_at": "2026-04-23 11:23:17",
+      "template_id": "tpl_beijing_1776914597646_05a5b7",
+      "linked_vars": [
+        "cur_brief",
+        "pkg_brief",
+        "diff_str",
+        "usage_line"
+      ],
+      "script_requirement": "直接输出话术文本，不需要前缀，口语化；营销推荐话术贴合用户痛点，字数50字以内。"
+    }
+  ],
+  "script_templates": {
+    "套餐推荐": {
+      "template_id": "package_recommendation",
+      "template_name": "北京套餐推荐模板（旧，已由 script_templates_v2 替代）",
+      "template_content": "您好！您当前套餐使用套餐为{cur_brief}，根据您近6个月的通信消费和使用情况{usage_line}，月均消费xx元，语音/流量使用需求较高。您推荐{pkg_brief}套餐，套餐包含xx，{diff_str}您只需在现有月均消费的基础上增加xx元，新增xx权益。",
+      "required_plugins": [
+        "package_diff"
+      ],
+      "enabled": true
+    }
+  },
+  "prompts": {
+    "package_recommendation": {
+      "name": "北京套餐推荐模板",
+      "user_prompt_template": "你是移动套餐营销推荐坐席。\n请基于以下用户信息生成个性化套餐营销推荐话术：\n当前套餐：{cur_brief}\n历史用量：{usage_line}\n推荐套餐：{pkg_brief}\n套餐差异：{diff_str}\n\n直接输出话术文本，不需要前缀，口语化；营销推荐话术贴合用户痛点，字数100字以内。",
+      "output_format": "纯文本，无前缀",
+      "variables": [
+        "cur_brief",
+        "pkg_brief",
+        "diff_str",
+        "usage_line"
+      ]
+    }
+  }
+}
